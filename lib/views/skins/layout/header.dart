@@ -1,5 +1,6 @@
 import 'package:bs_admin/utils/config/hover_decoration.dart';
 import 'package:bs_admin/views/skins/widgets/rounded_button.dart';
+import 'package:bs_flutter/bs_flutter.dart';
 import 'package:flutter/material.dart';
 
 class SkinHeader extends StatelessWidget {
@@ -13,9 +14,9 @@ class SkinHeader extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Color(0xffd9d9d9),
-            spreadRadius: 8.0,
-            blurRadius: 16.0,
-            offset: Offset(25.0, 0.0)
+            spreadRadius: 2.0,
+            blurRadius: 10.0,
+            offset: Offset(12.0, 0.0)
           )
         ]
       ),
@@ -41,7 +42,7 @@ class _HeaderLeftSide extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           /// Toggle sidebar button
-          Container(
+          BreakPoint.isDesktop(context) ? Container() : Container(
             child: Material(
               child: InkWell(
                 child: Container(
