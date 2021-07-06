@@ -26,12 +26,12 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: BreakPoint.isMobile(context)
-          || BreakPoint.isTablet(context) ? SkinSidebar(shadow: false) : null,
+      drawer: BreakPoint.isMobile(context) ? SkinSidebar(shadow: false) : null,
       body: Container(
         child: Row(
           children: [
-            BreakPoint.isDesktop(context) ? SkinSidebar() : Container(),
+            BreakPoint.isDesktop(context)
+                || BreakPoint.isTablet(context) ? SkinSidebar() : Container(),
             Expanded(child: Container(
               child: Column(
                 verticalDirection: VerticalDirection.up,

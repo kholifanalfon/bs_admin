@@ -67,9 +67,7 @@ class _HomeState extends State<Home> {
                   style: Utils.boxCard,
                   children: [
                     BsCardContainer(title: Text('Periode')),
-                    BsCardContainer(child: Container(
-                      height: 1000,
-                    ))
+                    BsCardContainer(child: Container())
                   ],
                 ),
               )

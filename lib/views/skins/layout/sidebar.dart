@@ -1,5 +1,7 @@
 import 'package:bs_admin/views/skins/layout/sidebar-menus.dart';
 import 'package:bs_admin/views/skins/layout/sidebar-profile.dart';
+import 'package:bs_admin/views/utils/utils.dart';
+import 'package:bs_flutter/bs_flutter.dart';
 import 'package:flutter/material.dart';
 
 class SkinSidebar extends StatelessWidget {
@@ -13,50 +15,52 @@ class SkinSidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    Widget widget = Container();
+    if(BreakPoint.isDesktop(context))
+      widget = screenDesktop();
+
+    else if(BreakPoint.isTablet(context))
+      widget = screenTablet();
+
+    return widget;
+  }
+
+  Widget screenDesktop() {
     return Container(
       width: 250,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: !shadow ? [] : [
-            BoxShadow(
-              color: Color(0xffd9d9d9),
-              spreadRadius: 8.0,
-              blurRadius: 16.0,
-            )
-          ]
+          boxShadow: !shadow ? [] : [Utils.shadowRegular]
         ),
         child: Column(
           children: [
+            Container(
+              color: Colors.white,
+              margin: EdgeInsets.only(bottom: 15.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(child: Container(
+                      padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
+                      child: Text('ADMIN TEMPLATE',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18.0
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.left,
+                      )
+                  )),
+                ],
+              ),
+            ),
+            SidebarProfile(),
             Expanded(child: Scrollbar(
               child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Container(
-                      color: Colors.white,
-                      margin: EdgeInsets.only(bottom: 15.0),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(child: Container(
-                              padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
-                              child: Text('ADMIN TEMPLATE',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 18.0
-                                ),
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.left,
-                              )
-                          )),
-                        ],
-                      ),
-                    ),
-                    SidebarProfile(),
-                    SidebarMenus(),
-                  ],
-                ),
+                child: SidebarMenus(),
               ),
             )),
             Container(
@@ -68,6 +72,43 @@ class SkinSidebar extends StatelessWidget {
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Widget screenTablet() {
+    return Container(
+      width: 80,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: !shadow ? [] : [Utils.shadowRegular]
+      ),
+      child: Column(
+        children: [
+          Container(
+            child: Row(
+              children: [
+                Expanded(child: Container(
+                  padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
+                  child: Text('ADMIN TEMPLATE',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.left,
+                  )
+                )),
+              ],
+            ),
+          ),
+          SidebarProfile(),
+          Expanded(child: Scrollbar(
+            child: SingleChildScrollView(
+              child: SidebarMenus(),
+            ),
+          ))
+        ],
       ),
     );
   }

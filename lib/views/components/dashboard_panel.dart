@@ -50,7 +50,7 @@ class _DashboardPanelState extends State<DashboardPanel> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(5.0),
         boxShadow: [
-          Utils.regular
+          Utils.shadowRegular
         ]
       ),
       child: Row(

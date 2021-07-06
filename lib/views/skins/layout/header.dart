@@ -71,11 +71,23 @@ class _HeaderRightSide extends StatelessWidget {
     return Container(
       child: Row(
         children: [
-          RoundedButton(
-            margin: EdgeInsets.only(right: 10.0),
-            badge: Text('5'),
-            icon: Icons.people_rounded,
-            onPressed: () {},
+          BsDropdownButton(
+            toggleMenu: (_) {
+              return RoundedButton(
+                margin: EdgeInsets.only(right: 10.0),
+                badge: Text('5'),
+                icon: Icons.people_rounded,
+                onPressed: () => _.toggle(),
+              );
+            },
+            dropdownMenu: BsDropdownMenu(
+              children: [
+                BsDropdownItem(child: Text('Dropdown')),
+                BsDropdownItem(child: Text('Dropdown Items')),
+                BsDropdownDivider(),
+                BsDropdownItem(child: Text('Dropdown Items')),
+              ],
+            )
           ),
           RoundedButton(
             icon: Icons.settings_rounded,
