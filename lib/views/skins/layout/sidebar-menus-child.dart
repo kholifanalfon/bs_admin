@@ -1,4 +1,6 @@
 import 'package:bs_admin/views/utils/menus.dart';
+import 'package:bs_admin/views/utils/overlay.dart';
+import 'package:bs_flutter/bs_flutter.dart';
 import 'package:flutter/material.dart';
 
 class SidebarMenuChild extends StatefulWidget {
@@ -94,7 +96,14 @@ class _SidebarMenuChildState extends State<SidebarMenuChild> {
                           _updateState(() => _utils.setActive(true));
 
                         else if(widget.onPressed != null) {
+                          if(BreakPoint.isMobile(context))
+                            Navigator.pop(context);
+
+                          else if(BreakPoint.isTablet(context))
+                            UtilsOverlay.removeAll();
+
                           widget.onPressed!();
+                          UtilsOverlay.removeAll();
                         }
                       },
                       hoverColor: Colors.transparent,
@@ -213,7 +222,7 @@ class _SidebarMenuChildWrapper extends State<SidebarMenuChildWrapper> {
             child: CompositedTransformFollower(
               link: widget.layerLink,
               showWhenUnlinked: false,
-              offset: Offset(_size.width + 5.0, 0),
+              offset: Offset(_size.width + 8.0, 0),
               child: Container(
                 key: _key,
                 padding: EdgeInsets.fromLTRB(0.0, 10.0, 0, 10.0),

@@ -16,11 +16,9 @@ class SkinSidebar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Widget widget = Container();
-    if(BreakPoint.isDesktop(context))
-      widget = screenDesktop();
+    Widget widget = screenDesktop();
 
-    else if(BreakPoint.isTablet(context))
+    if(BreakPoint.isTablet(context))
       widget = screenTablet();
 
     return widget;

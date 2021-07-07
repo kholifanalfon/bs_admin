@@ -1,4 +1,4 @@
-import 'package:bs_admin/views/home.dart';
+import 'package:bs_admin/routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,6 +6,9 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
+  Routes routes = Routes();
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -22,9 +25,11 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        backgroundColor: Color(0xfff9fbfd)
       ),
-      home: Home(),
       debugShowCheckedModeBanner: false,
+      initialRoute: '/login',
+      onGenerateRoute: routes.generator,
     );
   }
 }

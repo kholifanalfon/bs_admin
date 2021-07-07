@@ -111,11 +111,9 @@ class _SidebarMenuItem extends State<SidebarMenuItem> {
   @override
   Widget build(BuildContext context) {
 
-    Widget child = Container();
-    if(BreakPoint.isDesktop(context))
-      child = screenDesktop();
+    Widget child = screenDesktop();
 
-    else if(BreakPoint.isTablet(context))
+    if(BreakPoint.isTablet(context))
       child = screenTablet();
 
     return child;
@@ -169,8 +167,15 @@ class _SidebarMenuItem extends State<SidebarMenuItem> {
                   if(widget.children.length > 0)
                     _updateState(() => _utils.setActive(true));
 
-                  else if(widget.onPressed != null)
+                  else if(widget.onPressed != null) {
+                    if(BreakPoint.isMobile(context))
+                      Navigator.of(context);
+
+                    else if(BreakPoint.isTablet(context))
+                      UtilsOverlay.removeAll();
+
                     widget.onPressed!();
+                  }
                 },
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
@@ -241,13 +246,19 @@ class _SidebarMenuItem extends State<SidebarMenuItem> {
                       else if(widget.children.length > 0 && _overlayOpen)
                         close();
 
-                      else if(widget.onPressed != null)
+                      else if(widget.onPressed != null) {
+                        if(BreakPoint.isTablet(context))
+                          UtilsOverlay.removeAll();
+
                         widget.onPressed!();
+                      }
                     },
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     splashColor: Colors.transparent,
-                    onHover: (hovered) => _updateState(() => _onHover = hovered),
+                    onHover: (hovered) {
+                      _updateState(() => _onHover = hovered);
+                    },
                   ),
                   color: Colors.transparent,
                 ),

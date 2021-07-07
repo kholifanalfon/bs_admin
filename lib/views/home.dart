@@ -1,20 +1,22 @@
+import 'package:bs_admin/routes.dart';
 import 'package:bs_admin/views/components/dashboard_panel.dart';
 import 'package:bs_admin/views/skins/widgets/breadcrumbs.dart';
 import 'package:bs_admin/views/skins/wrapper.dart';
 import 'package:bs_admin/views/utils/utils.dart';
 import 'package:bs_flutter/bs_flutter.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
+class HomeView extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _HomeState();
+    return _HomeViewState();
   }
 
 }
 
-class _HomeState extends State<Home> {
+class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Wrapper(

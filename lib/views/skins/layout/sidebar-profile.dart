@@ -12,11 +12,9 @@ class _SidebarProfileState extends State<SidebarProfile> {
 
   @override
   Widget build(BuildContext context) {
-    Widget widget = Container();
-    if(BreakPoint.isDesktop(context))
-      widget = screenDesktop();
+    Widget widget = screenDesktop();
 
-    else if(BreakPoint.isTablet(context))
+    if(BreakPoint.isTablet(context))
       widget = screenTablet();
 
     return widget;
@@ -54,12 +52,12 @@ class _SidebarProfileState extends State<SidebarProfile> {
 
   Widget screenTablet() {
     return Container(
-      margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
+      margin: EdgeInsets.fromLTRB(15.0, 20.0, 15.0, 20.0),
       child: Column(
         children: [
           Container(
-            width: 60,
-            height: 60,
+            width: 50,
+            height: 50,
             child: CircleAvatar(
               backgroundColor: Colors.grey.withOpacity(0.5),
             ),

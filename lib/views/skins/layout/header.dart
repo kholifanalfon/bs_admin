@@ -1,3 +1,5 @@
+import 'package:bs_admin/routes.dart';
+import 'package:bs_admin/routes/login_route.dart';
 import 'package:bs_admin/utils/config/hover_decoration.dart';
 import 'package:bs_admin/views/skins/widgets/rounded_button.dart';
 import 'package:bs_flutter/bs_flutter.dart';
@@ -42,7 +44,8 @@ class _HeaderLeftSide extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           /// Toggle sidebar button
-          BreakPoint.isDesktop(context) ? Container() : Container(
+          BreakPoint.isDesktop(context)
+              || BreakPoint.isTablet(context) ? Container() : Container(
             child: Material(
               child: InkWell(
                 child: Container(
@@ -89,13 +92,23 @@ class _HeaderRightSide extends StatelessWidget {
               ],
             )
           ),
-          RoundedButton(
-            icon: Icons.settings_rounded,
-            backgroundColor: Colors.blueAccent,
-            color: Colors.white,
-            hoverDecoration: HoverDecoration.blueAccent,
-            onPressed: () {},
-          ),
+          BsDropdownButton(
+            toggleMenu: (_) {
+              return RoundedButton(
+                icon: Icons.settings_rounded,
+                backgroundColor: Colors.blueAccent,
+                color: Colors.white,
+                hoverDecoration: HoverDecoration.blueAccent,
+                onPressed: () => _.toggle(),
+              );
+            },
+            dropdownMenu: BsDropdownMenu(
+              children: [
+                BsDropdownItem(child: Text('Login'), onPressed: () =>
+                  Routes.redirect(context, LoginRoute.login)),
+              ],
+            ),
+          )
         ],
       ),
     );

@@ -1,6 +1,8 @@
+import 'package:bs_admin/routes.dart';
 import 'package:bs_admin/views/skins/layout/sidebar-menus-child.dart';
 import 'package:bs_admin/views/skins/layout/sidebar-menus-item.dart';
 import 'package:bs_admin/views/utils/overlay.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
 class SidebarMenus extends StatefulWidget {
@@ -22,7 +24,7 @@ class _SidebarMenusState extends State<SidebarMenus> {
               menuKey: 'dashboard',
               icon: Icons.dashboard,
               label: 'Dashboard',
-              onPressed: () => UtilsOverlay.removeAll(),
+              onPressed: () {},
             ),
             SidebarMenuItem(
               icon: Icons.widgets,
@@ -40,7 +42,7 @@ class _SidebarMenusState extends State<SidebarMenus> {
                         SidebarMenuChild(
                           label: 'Sub Item 1.1',
                           menuKey: 'subitem1.1',
-                          onPressed: () => UtilsOverlay.removeAll(),
+                          onPressed: () {},
                         )
                       ],
                     )
