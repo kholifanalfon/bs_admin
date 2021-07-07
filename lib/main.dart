@@ -1,5 +1,7 @@
 import 'package:bs_admin/routes.dart';
+import 'package:bs_admin/utils/config.dart';
 import 'package:flutter/material.dart';
+import 'package:http_repository/http_repository.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,6 +10,10 @@ void main() {
 class MyApp extends StatelessWidget {
 
   Routes routes = Routes();
+
+  MyApp() {
+    Repository.api = Config.api;
+  }
 
   // This widget is the root of your application.
   @override

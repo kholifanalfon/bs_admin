@@ -35,9 +35,9 @@ class _SkinContentState extends State<SkinContent> {
         child: Container(
           child: Column(
             children: [
-              BreakPoint.isDesktop(context) ? DesktopScreen() : Container(),
-              BreakPoint.isTablet(context) ? DesktopScreen() : Container(),
-              BreakPoint.isMobile(context) ? MobileScreen() : Container(),
+              BreakPoint.isDesktop(context) ? screenDesktop() : Container(),
+              BreakPoint.isTablet(context) ? screenDesktop() : Container(),
+              BreakPoint.isMobile(context) ? screenMobile() : Container(),
               Container(child: widget.child),
             ],
           ),
@@ -46,9 +46,9 @@ class _SkinContentState extends State<SkinContent> {
     );
   }
 
-  Widget DesktopScreen() {
+  Widget screenDesktop() {
     return Container(
-      padding: EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 20.0),
+      padding: EdgeInsets.fromLTRB(15.0, 30.0, 15.0, 20.0),
       child: Row(
         children: [
           widget.title == null ? Container() : Expanded(child: Container(
@@ -57,8 +57,8 @@ class _SkinContentState extends State<SkinContent> {
               children: [
                 Text('${widget.title}',
                   style: TextStyle(
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold
                   ),
                 ),
                 widget.subTitle == null ? Container() : Container(
@@ -98,7 +98,7 @@ class _SkinContentState extends State<SkinContent> {
     );
   }
 
-  Widget MobileScreen() {
+  Widget screenMobile() {
     return Container(
       padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
       child: Column(

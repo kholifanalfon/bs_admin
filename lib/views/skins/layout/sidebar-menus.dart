@@ -1,8 +1,5 @@
-import 'package:bs_admin/routes.dart';
 import 'package:bs_admin/views/skins/layout/sidebar-menus-child.dart';
 import 'package:bs_admin/views/skins/layout/sidebar-menus-item.dart';
-import 'package:bs_admin/views/utils/overlay.dart';
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
 class SidebarMenus extends StatefulWidget {

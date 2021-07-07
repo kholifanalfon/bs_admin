@@ -1,6 +1,5 @@
 import 'package:bs_admin/routes.dart';
 import 'package:bs_admin/routes/home_route.dart';
-import 'package:bs_admin/views/utils/utils.dart';
 import 'package:bs_flutter/bs_flutter.dart';
 import 'package:flutter/material.dart';
 
@@ -49,6 +48,7 @@ class _LoginViewState extends State<LoginView> {
                         fontWeight: FontWeight.bold,
                         color: Color(0xff575962)
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                   Container(

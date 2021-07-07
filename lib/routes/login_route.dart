@@ -8,7 +8,6 @@ class LoginRoute {
   static String routeKey = 'login';
   static String login = '/$routeKey';
 
-  @override
   static void routes(Routes router) {
     router.define(login, handler: Handler(
       handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
