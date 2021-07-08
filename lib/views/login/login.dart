@@ -1,5 +1,6 @@
 import 'package:bs_admin/routes.dart';
 import 'package:bs_admin/routes/home_route.dart';
+import 'package:bs_admin/utils/session.dart';
 import 'package:bs_flutter/bs_flutter.dart';
 import 'package:flutter/material.dart';
 
@@ -100,7 +101,9 @@ class _LoginViewState extends State<LoginView> {
                         backgroundColor: BsColor.primary,
                         borderRadius: BorderRadius.all(Radius.circular(50.0))
                       ),
-                      onPressed: () => Routes.redirect(context, HomeRoute.home),
+                      onPressed: () {
+                        Routes.redirect(context, HomeRoute.home);
+                      },
                     ),
                   ),
                   Container(

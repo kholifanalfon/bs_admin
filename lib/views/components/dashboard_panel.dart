@@ -1,4 +1,4 @@
-import 'package:bs_admin/views/utils/utils.dart';
+import 'package:bs_admin/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class TrenValue {
@@ -50,7 +50,7 @@ class _DashboardPanelState extends State<DashboardPanel> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(5.0),
         boxShadow: [
-          Utils.shadowRegular
+          Styles.shadowRegular
         ]
       ),
       child: Row(

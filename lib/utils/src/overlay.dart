@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of utils;
 
 /// Class to handle all overlay of [BsSelectBox]
 class UtilsOverlay {

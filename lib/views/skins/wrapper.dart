@@ -13,6 +13,7 @@ class Wrapper extends StatelessWidget {
     this.subTitle,
     this.child,
     this.breadcrumbs = const [],
+    this.menuKey,
   }) : super(key: key);
 
   final String? title;
@@ -23,15 +24,17 @@ class Wrapper extends StatelessWidget {
 
   final Widget? child;
 
+  final String? menuKey;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: BreakPoint.isMobile(context) ? SkinSidebar(shadow: false) : null,
+      drawer: BreakPoint.isMobile(context) ? SkinSidebar(menuKey: menuKey, shadow: false) : null,
       body: Container(
         child: Row(
           children: [
             BreakPoint.isDesktop(context)
-                || BreakPoint.isTablet(context) ? SkinSidebar() : Container(),
+                || BreakPoint.isTablet(context) ? SkinSidebar(menuKey: menuKey) : Container(),
             Expanded(child: Container(
               child: Column(
                 verticalDirection: VerticalDirection.up,

@@ -1,4 +1,5 @@
 import 'package:bs_admin/routes.dart';
+import 'package:bs_admin/routes/login_route.dart';
 import 'package:bs_admin/utils/config.dart';
 import 'package:flutter/material.dart';
 import 'package:http_repository/http_repository.dart';
@@ -9,7 +10,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
 
-  Routes routes = Routes();
+  final Routes routes = Routes();
 
   MyApp() {
     Repository.api = Config.api;
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Color(0xfff9fbfd)
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: '/login',
+      initialRoute: LoginRoute.login,
       onGenerateRoute: routes.generator,
     );
   }

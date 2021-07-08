@@ -1,6 +1,6 @@
+import 'package:bs_admin/utils/styles.dart';
 import 'package:bs_admin/views/skins/layout/sidebar-menus.dart';
 import 'package:bs_admin/views/skins/layout/sidebar-profile.dart';
-import 'package:bs_admin/views/utils/utils.dart';
 import 'package:bs_flutter/bs_flutter.dart';
 import 'package:flutter/material.dart';
 
@@ -9,9 +9,12 @@ class SkinSidebar extends StatelessWidget {
   const SkinSidebar({
     Key? key,
     this.shadow = true,
+    this.menuKey,
   }) : super(key: key);
 
   final bool shadow;
+
+  final String? menuKey;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +33,7 @@ class SkinSidebar extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: !shadow ? [] : [Utils.shadowRegular]
+          boxShadow: !shadow ? [] : [Styles.shadowRegular]
         ),
         child: Column(
           children: [
@@ -58,7 +61,7 @@ class SkinSidebar extends StatelessWidget {
             SidebarProfile(),
             Expanded(child: Scrollbar(
               child: SingleChildScrollView(
-                child: SidebarMenus(),
+                child: SidebarMenus(menuKey: menuKey),
               ),
             )),
             Container(
@@ -79,7 +82,7 @@ class SkinSidebar extends StatelessWidget {
       width: 80,
       decoration: BoxDecoration(
         color: Colors.white,
-        boxShadow: !shadow ? [] : [Utils.shadowRegular]
+        boxShadow: !shadow ? [] : [Styles.shadowRegular]
       ),
       child: Column(
         children: [
@@ -103,7 +106,7 @@ class SkinSidebar extends StatelessWidget {
           SidebarProfile(),
           Expanded(child: Scrollbar(
             child: SingleChildScrollView(
-              child: SidebarMenus(),
+              child: SidebarMenus(menuKey: menuKey),
             ),
           ))
         ],

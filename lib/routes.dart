@@ -1,5 +1,6 @@
 import 'package:bs_admin/routes/home_route.dart';
 import 'package:bs_admin/routes/login_route.dart';
+import 'package:bs_admin/routes/masters/type_route.dart';
 import 'package:bs_admin/views/errors/page_not_found.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,6 +16,8 @@ class Routes  {
     LoginRoute.routes(this);
 
     HomeRoute.routes(this);
+
+    TypeRoute.routes(this);
 
     router.notFoundHandler = Handler(
       handlerFunc: (context, parameters) => PageNotFoundView(),

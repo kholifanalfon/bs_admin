@@ -1,6 +1,5 @@
+import 'package:bs_admin/utils/utils.dart';
 import 'package:bs_admin/views/skins/layout/sidebar-menus-child.dart';
-import 'package:bs_admin/views/utils/menus.dart';
-import 'package:bs_admin/views/utils/overlay.dart';
 import 'package:bs_flutter/bs_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -121,7 +120,7 @@ class _SidebarMenuItem extends State<SidebarMenuItem> {
 
   Widget screenDesktop() {
     return Container(
-      margin: EdgeInsets.only(bottom: _utils.active ? 5.0 : 10.0),
+      margin: EdgeInsets.only(bottom: 5.0),
       child: Column(
         children: [
           AnimatedContainer(

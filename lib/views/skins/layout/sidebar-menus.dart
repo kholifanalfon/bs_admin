@@ -1,12 +1,23 @@
+import 'package:bs_admin/routes.dart';
+import 'package:bs_admin/routes/home_route.dart';
+import 'package:bs_admin/routes/masters/type_route.dart';
 import 'package:bs_admin/views/skins/layout/sidebar-menus-child.dart';
 import 'package:bs_admin/views/skins/layout/sidebar-menus-item.dart';
 import 'package:flutter/material.dart';
 
 class SidebarMenus extends StatefulWidget {
+
+  const SidebarMenus({
+    Key? key,
+    this.menuKey,
+  }) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return _SidebarMenusState();
   }
+
+  final String? menuKey;
 }
 
 class _SidebarMenusState extends State<SidebarMenus> {
@@ -17,44 +28,30 @@ class _SidebarMenusState extends State<SidebarMenus> {
         child: Column(
           children: [
             SidebarMenuItem(
-              active: true,
-              menuKey: 'dashboard',
+              active: widget.menuKey == HomeRoute.routeKey,
+              menuKey: HomeRoute.routeKey,
               icon: Icons.dashboard,
               label: 'Dashboard',
-              onPressed: () {},
+              onPressed: () => Routes.redirect(context, HomeRoute.home),
             ),
             SidebarMenuItem(
-              icon: Icons.widgets,
-              menuKey: 'widgets',
-              label: 'Widgets',
-              children: [
-                SidebarMenuChild(
-                  label: 'Sub Item',
-                  menuKey: 'subitem',
-                  children: [
-                    SidebarMenuChild(
-                      label: 'Sub Item 1',
-                      menuKey: 'subitem1',
-                      children: [
-                        SidebarMenuChild(
-                          label: 'Sub Item 1.1',
-                          menuKey: 'subitem1.1',
-                          onPressed: () {},
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ],
+              active: widget.menuKey == HomeRoute.homeSession,
+              menuKey: HomeRoute.routeKey,
+              icon: Icons.dashboard,
+              label: 'Session Page',
+              onPressed: () => Routes.redirect(context, HomeRoute.homeSession),
             ),
             SidebarMenuItem(
-              icon: Icons.settings_rounded,
-              menuKey: 'settings',
-              label: 'Settings',
+              active: [TypeRoute.routeKey].contains(widget.menuKey),
+              icon: Icons.dashboard_rounded,
+              menuKey: 'master',
+              label: 'Masters',
               children: [
                 SidebarMenuChild(
-                  label: 'Users',
-                  menuKey: 'users',
+                  active: TypeRoute.routeKey == widget.menuKey,
+                  label: 'Types',
+                  menuKey: TypeRoute.routeKey,
+                  onPressed: () => Routes.redirect(context, TypeRoute.user),
                 )
               ],
             ),

@@ -1,5 +1,4 @@
-import 'package:bs_admin/views/utils/menus.dart';
-import 'package:bs_admin/views/utils/overlay.dart';
+import 'package:bs_admin/utils/utils.dart';
 import 'package:bs_flutter/bs_flutter.dart';
 import 'package:flutter/material.dart';
 

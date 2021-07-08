@@ -1,7 +1,8 @@
+import 'package:bs_admin/routes/home_route.dart';
+import 'package:bs_admin/utils/styles.dart';
 import 'package:bs_admin/views/components/dashboard_panel.dart';
 import 'package:bs_admin/views/skins/widgets/breadcrumbs.dart';
 import 'package:bs_admin/views/skins/wrapper.dart';
-import 'package:bs_admin/views/utils/utils.dart';
 import 'package:bs_flutter/bs_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Wrapper(
+      menuKey: HomeRoute.routeKey,
       title: 'Dashboard',
       subTitle: 'Selamat datang di halaman dashboard testing loresm ipsum saja test',
       breadcrumbs: [
@@ -64,7 +66,7 @@ class _HomeViewState extends State<HomeView> {
               BsCol(
                 sizes: ColScreen.all(Col.col_12),
                 child: BsCard(
-                  style: Utils.boxCard,
+                  style: Styles.boxCard,
                   children: [
                     BsCardContainer(title: Text('Periode')),
                     BsCardContainer(child: Container())
