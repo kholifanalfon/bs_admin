@@ -4,6 +4,7 @@ class SessionCode {
 
   static const String userid = 'tNsjQ';
   static const String fullname = 'Cv6O1';
+  static const String sessionBAru = 'asda';
 }
 
 class SessionUtils {

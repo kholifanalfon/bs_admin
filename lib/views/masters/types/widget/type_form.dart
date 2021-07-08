@@ -28,6 +28,8 @@ class TypeFormModal extends StatefulWidget {
 
 class _TypeFormModalState extends State<TypeFormModal> {
 
+  GlobalKey<FormState> _formState = GlobalKey<FormState>();
+
   late TypeForm _typeForm;
 
   @override
@@ -50,50 +52,53 @@ class _TypeFormModalState extends State<TypeFormModal> {
     return BsModal(
         context: context,
         dialog: BsModalDialog(
-          child: BsModalContent(
-            children: [
-              BsModalContainer(title: Text(DBText.formTitle(TypeText.title)), closeButton: true),
-              BsModalContainer(
-                child: Column(
-                  children: [
-                    _typeForm.selectParent(),
-                    _typeForm.inputCode(),
-                    _typeForm.inputName(),
-                    _typeForm.inputSequence(),
-                    _typeForm.inputDescription()
-                  ],
+          child: Form(
+            key: _formState,
+            child: BsModalContent(
+              children: [
+                BsModalContainer(title: Text(DBText.formTitle(TypeText.title)), closeButton: true),
+                BsModalContainer(
+                  child: Column(
+                    children: [
+                      _typeForm.selectParent(),
+                      _typeForm.inputCode(),
+                      _typeForm.inputName(),
+                      _typeForm.inputSequence(),
+                      _typeForm.inputDescription()
+                    ],
+                  ),
                 ),
-              ),
-              BsModalContainer(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  actions: [
-                    BsButton(
-                      disabled: widget.presenter.isLoading,
-                      margin: EdgeInsets.only(right: 5.0),
-                      label: Text(DBText.buttonModalCancel),
-                      prefixIcon: DBIcon.buttonModalCancel,
-                      style: BsButtonStyle.danger,
-                      size: BsButtonSize.btnMd,
-                      onPressed: () {
-                        Navigator.pop(context);
-                        if(widget.onClose != null)
-                          widget.onClose!();
-                      },
-                    ),
-                    BsButton(
-                      disabled: widget.presenter.isLoading,
-                      label: Text(widget.presenter.isLoading ? DBText.buttonProcessing : DBText.buttonModalSave),
-                      prefixIcon: DBIcon.buttonModalSave,
-                      style: BsButtonStyle.primary,
-                      size: BsButtonSize.btnMd,
-                      onPressed: () {
-                        if(widget.onSubmit != null)
-                          widget.onSubmit!();
-                      },
-                    ),
-                  ]
-              )
-            ],
+                BsModalContainer(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    actions: [
+                      BsButton(
+                        disabled: widget.presenter.isLoading,
+                        margin: EdgeInsets.only(right: 5.0),
+                        label: Text(DBText.buttonModalCancel),
+                        prefixIcon: DBIcon.buttonModalCancel,
+                        style: BsButtonStyle.danger,
+                        size: BsButtonSize.btnMd,
+                        onPressed: () {
+                          Navigator.pop(context);
+                          if(widget.onClose != null)
+                            widget.onClose!();
+                        },
+                      ),
+                      BsButton(
+                        disabled: widget.presenter.isLoading,
+                        label: Text(widget.presenter.isLoading ? DBText.buttonProcessing : DBText.buttonModalSave),
+                        prefixIcon: DBIcon.buttonModalSave,
+                        style: BsButtonStyle.primary,
+                        size: BsButtonSize.btnMd,
+                        onPressed: () {
+                          if(widget.onSubmit != null)
+                            widget.onSubmit!();
+                        },
+                      ),
+                    ]
+                )
+              ],
+            ),
           ),
         )
     );
