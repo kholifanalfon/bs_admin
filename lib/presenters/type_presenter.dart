@@ -8,11 +8,13 @@ import 'package:bs_admin/views/masters/types/widget/type_form.dart';
 import 'package:bs_flutter/bs_flutter.dart';
 import 'package:flutter/material.dart';
 
+abstract class TypePresenterContract implements ViewContract {}
+
 class TypePresenter extends TypeFormSource {
 
   GlobalKey<State> _formState = GlobalKey<State>();
 
-  final ViewContract viewContract;
+  final TypePresenterContract viewContract;
 
   TypePresenter(this.viewContract);
 
@@ -26,7 +28,8 @@ class TypePresenter extends TypeFormSource {
     viewContract.updateState();
 
     if(_formState.currentState != null)
-      _formState.currentState!.setState(() {});
+      _formState.currentState!.setState(() {
+      });
   }
 
   Map<String, String> getDatas() {
@@ -78,12 +81,12 @@ class TypePresenter extends TypeFormSource {
     setLoading(false);
 
     showDialog(
-        context: context,
-        builder: (context) => TypeFormModal(
-          key: _formState,
-          presenter: this,
-          onSubmit: () => store(context),
-        )
+      context: context,
+      builder: (context) => TypeFormModal(
+        key: _formState,
+        presenter: this,
+        onSubmit: () => store(context),
+      )
     );
   }
 

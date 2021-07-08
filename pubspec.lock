@@ -18,11 +18,9 @@ packages:
   bs_flutter:
     dependency: "direct main"
     description:
-      path: "."
-      ref: main
-      resolved-ref: "96e19ea9ebd597deff948c6740c41cdc47d81c60"
-      url: "https://github.com/kholifanalfon/bs_flutter.git"
-    source: git
+      name: bs_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "0.3.5"
   bs_flutter_alert:
     dependency: transitive
@@ -184,7 +182,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "88dcfc89c687b00d4d6a1feb8df466e2aa14a7f8"
+      resolved-ref: b1ea13eb0df2b0f81b01f1a7d99709ebddea490a
       url: "https://github.com/kholifanalfon/http_repository.git"
     source: git
     version: "1.0.0"

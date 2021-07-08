@@ -18,9 +18,11 @@ class TypeView extends StatefulWidget {
   }
 }
 
-class _TypeViewState extends State<TypeView> implements ViewContract {
+class _TypeViewState extends State<TypeView> implements TypePresenterContract {
 
   late TypePresenter _presenter;
+
+  bool isLoading = false;
 
   @override
   void initState() {
