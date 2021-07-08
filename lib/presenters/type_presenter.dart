@@ -58,6 +58,7 @@ class TypePresenter extends TypeFormSource {
   }
 
   void resetData() {
+    typeid = '';
     selectParent.clear();
     inputCode.clear();
     inputName.clear();

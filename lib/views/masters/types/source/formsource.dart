@@ -2,7 +2,7 @@ part of datasource;
 
 abstract class TypeFormSource {
 
-  late String typeid;
+  String typeid = '';
   late bool isLoading;
 
   BsSelectBoxController selectParent = BsSelectBoxController();
