@@ -1,5 +1,5 @@
 import 'package:bs_admin/constants/constants.dart';
-import 'package:bs_admin/presenters/type_presenter.dart';
+import 'package:bs_admin/presenters/masters/type_presenter.dart';
 import 'package:bs_admin/views/masters/types/source/datasource.dart';
 import 'package:bs_flutter/bs_flutter.dart';
 import 'package:flutter/cupertino.dart';
@@ -91,7 +91,7 @@ class _TypeFormModalState extends State<TypeFormModal> {
                         style: BsButtonStyle.primary,
                         size: BsButtonSize.btnMd,
                         onPressed: () {
-                          if(widget.onSubmit != null)
+                          if(_formState.currentState!.validate() && widget.onSubmit != null)
                             widget.onSubmit!();
                         },
                       ),

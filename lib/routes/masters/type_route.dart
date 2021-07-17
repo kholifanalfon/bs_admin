@@ -6,12 +6,16 @@ import 'package:flutter/material.dart';
 
 class TypeRoute {
 
-  static String routeKey = 'user';
-  static String user = '/user';
+  static String routeKey = 'type';
+  static String type = '/type';
 
   static void routes(Routes router) {
-    router.define(user, handler: Handler(
-      handlerFunc: (BuildContext? context, Map<String, List<String>> params) => TypeView(),
+    router.define(type, handler: Handler(
+      handlerFunc: (BuildContext? context, Map<String, List<String>> params) => Session(
+        builder: (context) async {
+          return TypeView();
+        },
+      ),
     ));
   }
 

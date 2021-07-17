@@ -51,21 +51,7 @@ class _SidebarMenusState extends State<SidebarMenus> {
                   active: TypeRoute.routeKey == widget.menuKey,
                   label: 'Types',
                   menuKey: TypeRoute.routeKey,
-                  onPressed: () => Routes.redirect(context, TypeRoute.user),
-                  children: [
-                    SidebarMenuChild(
-                      active: TypeRoute.routeKey == widget.menuKey,
-                      label: 'Types 1.1',
-                      menuKey: TypeRoute.routeKey,
-                      onPressed: () => Routes.redirect(context, TypeRoute.user),
-                    )
-                  ],
-                ),
-                SidebarMenuChild(
-                  active: TypeRoute.routeKey == widget.menuKey,
-                  label: 'Types',
-                  menuKey: TypeRoute.routeKey,
-                  onPressed: () => Routes.redirect(context, TypeRoute.user),
+                  onPressed: () => Routes.redirect(context, TypeRoute.type),
                 )
               ],
             ),

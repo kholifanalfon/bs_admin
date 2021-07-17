@@ -33,6 +33,7 @@ class TypeForm {
         hintText: DBText.placeholderSelect(TypeText.formParent),
         selectBoxController: presenter.selectParent,
         serverSide: (params) => selectType(params, typeid: presenter.typeid),
+        validators: [],
       ),
     );
   }
@@ -44,6 +45,9 @@ class TypeForm {
         disabled: presenter.isLoading,
         controller: presenter.inputCode,
         hintText: DBText.placeholder(TypeText.formCode),
+        validators: [
+          UtilsValidation.inputRequired(TypeText.formCode),
+        ],
       ),
     );
   }
@@ -55,6 +59,10 @@ class TypeForm {
         disabled: presenter.isLoading,
         controller: presenter.inputName,
         hintText: DBText.placeholder(DBText.formName),
+        validators: [
+          UtilsValidation.inputRequired(TypeText.formCode),
+          BsInputValidators.maxLength(100),
+        ],
       ),
     );
   }
@@ -69,6 +77,9 @@ class TypeForm {
         keyboardType: TextInputType.number,
         inputFormatters: [
           FilteringTextInputFormatter.digitsOnly
+        ],
+        validators: [
+          UtilsValidation.inputRequired(TypeText.formSequence)
         ],
       ),
     );

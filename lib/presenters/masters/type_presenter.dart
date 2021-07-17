@@ -1,6 +1,6 @@
 import 'package:bs_admin/helpers/helpers.dart';
-import 'package:bs_admin/models/type_model.dart';
-import 'package:bs_admin/services/type_service.dart';
+import 'package:bs_admin/models/masters/type_model.dart';
+import 'package:bs_admin/services/masters/type_service.dart';
 import 'package:bs_admin/utils/utils.dart';
 import 'package:bs_admin/views/components/dialog_confirm.dart';
 import 'package:bs_admin/views/masters/types/source/datasource.dart';
@@ -67,14 +67,16 @@ class TypePresenter extends TypeFormSource {
   }
 
   Future datatables(BuildContext context, Map<String, String> params) async {
-    return await typeService.datatables(params).then((value) {
-      if(value.result!) {
-        typeSource.response = BsDatatableResponse.createFromJson(value.data);
-        typeSource.onEditListener = (typeid) => edit(context, typeid);
-        typeSource.onDeleteListener = (typeid) => delete(context, typeid);
-        setLoading(false);
-      }
-    });
+    try {
+      return await typeService.datatables(params).then((value) {
+        if(value.result!) {
+          typeSource.response = BsDatatableResponse.createFromJson(value.data);
+          typeSource.onEditListener = (typeid) => edit(context, typeid);
+          typeSource.onDeleteListener = (typeid) => delete(context, typeid);
+          setLoading(false);
+        } else setLoading(false);
+      });
+    } catch (e) {setLoading(false);}
   }
 
   void add(BuildContext context) {

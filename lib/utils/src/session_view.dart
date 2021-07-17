@@ -38,7 +38,8 @@ class _SessionState extends State<Session> {
 
     /* Jika terdapat session dan bukan halaman guest maka login valid */
     if(session.userid != null
-      && session.fullname != null) {
+      && session.fullname != null
+      && session.token != null) {
 
       /* Jika bukan guest maka tampil halaman yang di request */
       if(!widget.guest)
@@ -61,7 +62,8 @@ class _SessionState extends State<Session> {
       });
     }
 
-    _child = await widget.builder(context);
+    if(pIsLogged)
+      _child = await widget.builder(context);
 
     setState(() {
       _isLogged = pIsLogged;

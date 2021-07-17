@@ -1,6 +1,7 @@
 import 'package:bs_admin/routes.dart';
 import 'package:bs_admin/routes/login_route.dart';
 import 'package:bs_admin/utils/config/hover_decoration.dart';
+import 'package:bs_admin/utils/session.dart';
 import 'package:bs_admin/views/skins/widgets/rounded_button.dart';
 import 'package:bs_flutter/bs_flutter.dart';
 import 'package:flutter/material.dart';
@@ -104,8 +105,10 @@ class _HeaderRightSide extends StatelessWidget {
             },
             dropdownMenu: BsDropdownMenu(
               children: [
-                BsDropdownItem(child: Text('Login'), onPressed: () =>
-                  Routes.redirect(context, LoginRoute.login)),
+                BsDropdownItem(child: Text('Logout'), onPressed: () async {
+                  await SessionUtils.removeSession();
+                  Routes.redirect(context, LoginRoute.login);
+                })
               ],
             ),
           )
