@@ -30,26 +30,28 @@ class Wrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: BreakPoint.isMobile(context) ? SkinSidebar(menuKey: menuKey, shadow: false) : null,
-      body: Container(
-        child: Row(
-          children: [
-            BreakPoint.isDesktop(context)
-                || BreakPoint.isTablet(context) ? SkinSidebar(menuKey: menuKey) : Container(),
-            Expanded(child: Container(
-              child: Column(
-                verticalDirection: VerticalDirection.up,
-                children: [
-                  SkinContent(
-                    title: title,
-                    subTitle: subTitle,
-                    breadcrumbs: breadcrumbs,
-                    child: child,
-                  ),
-                  SkinHeader(),
-                ],
-              ),
-            ))
-          ],
+      body: SafeArea(
+        child: Container(
+          child: Row(
+            children: [
+              BreakPoint.isDesktop(context)
+                  || BreakPoint.isTablet(context) ? SkinSidebar(menuKey: menuKey) : Container(),
+              Expanded(child: Container(
+                child: Column(
+                  verticalDirection: VerticalDirection.up,
+                  children: [
+                    SkinContent(
+                      title: title,
+                      subTitle: subTitle,
+                      breadcrumbs: breadcrumbs,
+                      child: child,
+                    ),
+                    SkinHeader(),
+                  ],
+                ),
+              ))
+            ],
+          ),
         ),
       ),
     );

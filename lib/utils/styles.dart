@@ -24,8 +24,6 @@ class Styles {
       padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 14.0, bottom: 14.0),
       marginTop: 14.0,
       marginLeft: 5.0,
-      transitionMarginTop: 10.0,
-      transitionMarginLeft: 0.0
   );
 
   static Widget datatableLayout(_) {

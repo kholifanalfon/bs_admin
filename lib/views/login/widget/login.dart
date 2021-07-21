@@ -99,13 +99,7 @@ class _LoginViewState extends State<LoginView> implements LoginPresenterContract
                         style: BsInputStyle(
                             border: Border(bottom: BorderSide(color: Color(0xffebedf2)))
                         ),
-                        size: BsInputSize(
-                          fontSize: 14.0,
-                          padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 14.0, bottom: 14.0),
-                          marginTop: 10.0,
-                          marginLeft: 0.0,
-                          transitionMarginTop: 10.0,
-                        ),
+                        size: BsInputSize.outlineBottomMd,
                         validators: [
                           UtilsValidation.inputRequired('Nama pengguna'),
                           BsInputValidators.maxLength(50),
@@ -119,15 +113,9 @@ class _LoginViewState extends State<LoginView> implements LoginPresenterContract
                         controller: _presenter.inputPassword,
                         hintTextLabel: LoginText.formPassword,
                         style: BsInputStyle(
-                            border: Border(bottom: BorderSide(color: Color(0xffebedf2)))
+                          border: Border(bottom: BorderSide(color: Color(0xffebedf2)))
                         ),
-                        size: BsInputSize(
-                          fontSize: 14.0,
-                          padding: EdgeInsets.only(left: 8.0, right: 8.0, top: 14.0, bottom: 14.0),
-                          marginTop: 10.0,
-                          marginLeft: 0.0,
-                          transitionMarginTop: 10.0,
-                        ),
+                        size: BsInputSize.outlineBottomMd,
                         obscureText: true,
                         validators: [
                           UtilsValidation.inputRequired('Kata sandi'),

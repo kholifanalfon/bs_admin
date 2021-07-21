@@ -24,7 +24,7 @@ class SkinSidebar extends StatelessWidget {
     if(BreakPoint.isTablet(context))
       widget = screenTablet();
 
-    return widget;
+    return SafeArea(child: widget);
   }
 
   Widget screenDesktop() {
