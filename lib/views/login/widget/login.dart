@@ -97,7 +97,8 @@ class _LoginViewState extends State<LoginView> implements LoginPresenterContract
                         controller: _presenter.inputUsername,
                         hintTextLabel: LoginText.formUsername,
                         style: BsInputStyle(
-                            border: Border(bottom: BorderSide(color: Color(0xffebedf2)))
+                          backgroundColor: Colors.white,
+                          border: Border(bottom: BorderSide(color: Color(0xffebedf2)))
                         ),
                         size: BsInputSize.outlineBottomMd,
                         validators: [
@@ -113,6 +114,7 @@ class _LoginViewState extends State<LoginView> implements LoginPresenterContract
                         controller: _presenter.inputPassword,
                         hintTextLabel: LoginText.formPassword,
                         style: BsInputStyle(
+                          backgroundColor: Colors.white,
                           border: Border(bottom: BorderSide(color: Color(0xffebedf2)))
                         ),
                         size: BsInputSize.outlineBottomMd,
